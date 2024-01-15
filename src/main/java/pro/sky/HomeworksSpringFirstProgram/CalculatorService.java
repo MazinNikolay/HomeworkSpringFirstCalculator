@@ -1,6 +1,6 @@
 package pro.sky.HomeworksSpringFirstProgram;
 
-public interface CalculateService {
+public interface CalculatorService {
     String hello();
 
     String plus(int num1, int num2);

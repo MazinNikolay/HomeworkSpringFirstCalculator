@@ -3,7 +3,7 @@ package pro.sky.HomeworksSpringFirstProgram;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CalculateServiceImpl implements CalculateService {
+public class CalculatorServiceImpl implements CalculatorService {
     public String hello() {
         return "<b>Добро пожаловать</b> в калькулятор";
     }

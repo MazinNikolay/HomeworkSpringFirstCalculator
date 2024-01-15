@@ -7,26 +7,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "/calculator")
-public class CalculateController {
-    private final CalculateService calculateService;
+public class CalculatorController {
+    private final CalculatorService calculatorService;
 
-    public CalculateController(CalculateService calculateService) {
-        this.calculateService = calculateService;
+    public CalculatorController(CalculatorService calculatorService) {
+        this.calculatorService = calculatorService;
     }
 
     @GetMapping
     public String hello() {
-        return calculateService.hello();
+        return calculatorService.hello();
     }
 
     @GetMapping(path = "/plus")
     public String plus(
             @RequestParam(required = false) Integer num1,
             @RequestParam(required = false) Integer num2) {
-        if (calculateService.checkEmpty(num1, num2)) {
+        if (calculatorService.checkEmpty(num1, num2)) {
             return "Какой-то из двух параметров (или оба) не поданы, исправте ввод";
         } else {
-            return calculateService.plus(num1, num2);
+            return calculatorService.plus(num1, num2);
         }
     }
 
@@ -34,10 +34,10 @@ public class CalculateController {
     public String minus(
             @RequestParam(required = false) Integer num1,
             @RequestParam(required = false) Integer num2) {
-        if (calculateService.checkEmpty(num1, num2)) {
+        if (calculatorService.checkEmpty(num1, num2)) {
             return "Какой-то из двух параметров (или оба) не поданы, исправте ввод";
         } else {
-            return calculateService.minus(num1, num2);
+            return calculatorService.minus(num1, num2);
         }
     }
 
@@ -45,10 +45,10 @@ public class CalculateController {
     public String multiply(
             @RequestParam(required = false) Integer num1,
             @RequestParam(required = false) Integer num2) {
-        if (calculateService.checkEmpty(num1, num2)) {
+        if (calculatorService.checkEmpty(num1, num2)) {
             return "Какой-то из двух параметров (или оба) не поданы, исправте ввод";
         } else {
-            return calculateService.multiply(num1, num2);
+            return calculatorService.multiply(num1, num2);
         }
     }
 
@@ -56,10 +56,10 @@ public class CalculateController {
     public String divide(
             @RequestParam(required = false) Integer num1,
             @RequestParam(required = false) Integer num2) {
-        if (calculateService.checkEmpty(num1, num2) || num2 == 0) {
+        if (calculatorService.checkEmpty(num1, num2) || num2 == 0) {
             return "Какой-то из двух параметров (или оба) не поданы, или второе значение равно \"0\", исправте ввод";
         } else {
-            return calculateService.divide(num1, num2);
+            return calculatorService.divide(num1, num2);
         }
     }
 }
